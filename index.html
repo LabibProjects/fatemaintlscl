@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatema International School - Where Growth Begins</title>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes colorChange {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo:hover img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .logo span {
+            font-size: 1.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #1e3a8a, #4f46e5, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: colorChange 10s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav ul li a::after {
+
+        }
+
+        nav ul li a:hover::after {
+            transform: translateX(0);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #1e3a8a, #4f46e5, #7c3aed);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background-size: 200% 200%;
+            animation: colorChange 10s ease infinite;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: #1e3a8a;
+            margin-bottom: 4px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover span {
+            background: #4f46e5;
+        }
+
+        .hero {
+            background-image: url('main bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .programs {
+            padding: 80px 0;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef, #dee2e6);
+            background-size: 200% 200%;
+            animation: colorChange 15s ease infinite;
+        }
+
+        .programs h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1e3a8a;
+        }
+
+        .program-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: calc(33.333% - 20px);
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            padding: 80px 0;
+            background: linear-gradient(45deg, #e9ecef, #dee2e6, #ced4da);
+            background-size: 200% 200%;
+            animation: colorChange 15s ease infinite;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1e3a8a;
+        }
+
+        .gallery-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .gallery-images img {
+            width: calc(33.333% - 10px);
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-images img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(45deg, #1e3a8a, #4f46e5, #7c3aed);
+            color: #fff;
+            background-size: 200% 200%;
+            animation: colorChange 15s ease infinite;
+        }
+
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            transform: scale(1.02);
+        }
+
+        footer {
+            background-color: #152c69;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                backdrop-filter: blur(5px);
+            }
+            nav.active {
+                display: block;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            .card, .gallery-images img {
+                width: 100%;
+            }
+            .contact-info {
+                flex-direction: column;
+            }
+            .contact-item {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Fatema International School Logo">
+                    <span>Fatema International School</span>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact" class="btn">Enroll Now</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Where Growth Begins</h1>
+                <p>Nurturing young minds with quality education and holistic development from Playgroup to Class 5</p>
+                <a href="#contact" class="btn">Schedule a Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="programs">
+        <div class="container">
+            <h2>Our Programs</h2>
+            <div class="program-cards">
+                <div class="card">
+                    <h3>Early Learning (Playgroup - KG)</h3>
+                    <p>Foundational skills and playful learning experiences in our vibrant classrooms</p>
+                </div>
+                <div class="card">
+                    <h3>Primary Education (Class 1-5)</h3>
+                    <p>Comprehensive curriculum covering all core subjects with interactive learning</p>
+                </div>
+                <div class="card">
+                    <h3>English Excellence</h3>
+                    <p>Special focus on English language skills and pronunciation through engaging activities</p>
+                </div>
+                <div class="card">
+                    <h3>Academic Excellence</h3>
+                    <p>Regular assessments and progress monitoring with personalized attention</p>
+                </div>
+                <div class="card">
+                    <h3>Extracurricular Activities</h3>
+                    <p>Sports, arts, and cultural programs for holistic development</p>
+                </div>
+                <div class="card">
+                    <h3>Skill Development</h3>
+                    <p>Focus on critical thinking and problem-solving skills through hands-on learning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Our Gallery</h2>
+            <div class="gallery-images">
+                <img src="g1.jpg" alt="Students learning">
+                <img src="g2.jpg" alt="Classroom environment">
+                <img src="g3.jpg" alt="School building">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p>+880 1783850876</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>fatemeintschool@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Address</h3>
+                    <p>Shikdar Villa, House No- 29, P.D.B. Road, Kala Bagan, Sonarampur, Ashuganj</p>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Fatema International School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav');
+
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
